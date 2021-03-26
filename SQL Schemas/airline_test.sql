@@ -5,12 +5,12 @@ use airline_test;
 
 create table aircrafts (
 	aircraft_name varchar(255),
-    total_seats smallint,
+    total_seats int,
     primary key (aircraft_name)
 );
 
 create table customers (
-	id smallint not null auto_increment,
+	id int not null auto_increment,
     customer_name varchar(255),
     customer_status varchar(255),
     customer_total_mileage int,
@@ -20,18 +20,15 @@ create table customers (
 create table fligths (
 	flight_number varchar(5),
     aircraft_name varchar(255),
-    flight_mileage smallint,
-    primary key (flight_number),
-    foreign key(aircraft_name) references aircrafts(aircraft_name)
+    flight_mileage int,
+    primary key (flight_number)
 );
 
 create table airline (
-	id smallint not null auto_increment,
+	id int not null auto_increment,
     flight_number varchar(5),
-    customer_id smallint,
-    primary key (id),
-    foreign key (flight_number) references fligths(flight_number),
-    foreign key (customer_id) references customers(id)
+    customer_id int,
+    primary key (id)
 );
 
 insert into aircrafts values
@@ -70,3 +67,4 @@ insert into airline (flight_number, customer_id) values
 	('DL122', 5),
 	('DL37', 4),
 	('DL222', 8);
+    
